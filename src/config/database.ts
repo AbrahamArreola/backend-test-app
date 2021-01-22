@@ -1,6 +1,25 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+import { Sequelize } from "sequelize";
 
-(async () => {
+export const sequelize = new Sequelize('mysql://root@localhost/interview_db');
+
+sequelize
+    .sync()
+    .then(() => {
+        console.log("Database is sync!");
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+
+
+
+
+
+
+
+    /* (async () => {
     try {
         await mongoose.connect("mongodb://localhost/interviewAppDB", {
             useNewUrlParser: true,
@@ -14,3 +33,4 @@ import mongoose from "mongoose";
         console.log(error);
     }
 })();
+ */
